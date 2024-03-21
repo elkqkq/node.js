@@ -30,19 +30,21 @@ module.exports={
     },
 
     //get student with id
-    getOneStudent: async(req,res,next)=>{
-        try{
-            let id = req.param.student_id
-            let Student=await students.findOne({where: {student_id:id}})
-            
-            if(!students){
-                throw (createError, {404: "The student does not exist"})
-            }
-            res.status(200).json(Student)
-        }catch (error){
-            next(error)
+getOneStudent: async (req, res, next) => {
+    try {
+        let id = req.params.id; // Correct parameter access
+        let Student = await students.findOne({ where: { student_id: id } });
+        
+        if (!students) {
+            throw createError(404, "The student does not exist"); // Fix error creation syntax
         }
-    },
+        res.status(200).json(Student);
+    } catch (error) {
+        next(error);
+    }
+},
+
+
     //update  a student information
     updateStudent: async(req,res,next)=>{
         try {

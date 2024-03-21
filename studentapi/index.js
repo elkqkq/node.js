@@ -17,30 +17,30 @@ app.listen(process.env.port || 4000, function() {
   }); 
 
 
-//handling  errors
-app.use(async(req, res, next)=>{
-    next(createError.NOTFOUND())
-})
+// //handling  errors
+// app.use(async(req, res, next)=>{
+//     next(createError.NOTFOUND())
+// })
 
-//Error handling middleware 
-app.use((err, req,res,next)=> {
-    if (err.status === 401){
-        //handle 401 unauthorized error 
-        res.status(401).send({
-            error: {
-                status:401,
-                message:"You are not authorised to view this resource"
-            }
-        });
-    }else {
-        //Handle other errrors
-        res.status (err.status || 500).send({
-            error: {
-                status:err ||500,
-                message: "Internal Server Error",
-            }
-        });
-    }
+// //Error handling middleware 
+// app.use((err, req,res,next)=> {
+//     if (err.status === 401){
+//         //handle 401 unauthorized error 
+//         res.status(401).send({
+//             error: {
+//                 status:401,
+//                 message:"You are not authorised to view this resource"
+//             }
+//         });
+//     }else {
+//         //Handle other errrors
+//         res.status (err.status || 500).send({
+//             error: {
+//                 status:err ||500,
+//                 message: "Internal Server Error",
+//             }
+//         });
+//     }
 
-});
+// });
   
