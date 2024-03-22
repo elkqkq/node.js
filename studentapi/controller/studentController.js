@@ -44,7 +44,6 @@ getOneStudent: async (req, res, next) => {
     }
 },
 
-
     //update  a student information
     updateStudent: async(req,res,next)=>{
         try {
